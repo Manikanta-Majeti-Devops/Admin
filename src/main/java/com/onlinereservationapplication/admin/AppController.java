@@ -143,4 +143,10 @@ public class AppController
                     .body("BusRoute with bus number \"" + busNumber + "\" Not found");
         }
     }
+
+    @GetMapping("fetch/busRoute/{busNumber}")
+    public ResponseEntity<Busroute>fetchBusRouteByBusNumber(@PathVariable String busNumber)
+    {
+        return ResponseEntity.ok(busRouteRepository.findByBusNumber(busNumber));
+    }
 }
